@@ -8,8 +8,8 @@ import com.example.dictionary.feature_dictionary.domain.model.WordInfo
 @Entity(tableName = "WordsTable")
 data class WordInfoEntity(
     val word: String,
-    val phonetic: String,
-    val source: List<String>,
+    val phonetic: String?,
+    val sourceUrls: List<String>,
     val meanings: List<Meaning>,
     @PrimaryKey val id: Int? = null
 ) {
@@ -17,7 +17,7 @@ data class WordInfoEntity(
         return WordInfo(
             meanings = meanings,
             word = word,
-            sourceUrls = source,
+            sourceUrls = sourceUrls,
             phonetic = phonetic
         )
     }
